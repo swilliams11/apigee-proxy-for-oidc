@@ -1,0 +1,55 @@
+<TargetEndpoint name="token">
+  <Description/>
+  <!-- redeem code here -->
+  <!--
+      eg,
+      for a web app
+
+      curl -X POST \
+        https://${your_idp_domain}/oauth2/{authzserver}/v1/token \
+        -u client_id:client_secret \
+        -H 'accept: application/json' \
+        -H 'cache-control: no-cache' \
+        -H 'content-type: application/x-www-form-urlencoded' \
+        -d 'grant_type=authorization_code' \
+        -d 'redirect_uri=yourApp%3A%2Fcallback' \
+        -d 'code=CKA9UGnqehz' \
+        -d 'code_verifier=M25iVXpKU'
+
+      For an SPA (includes an origin header)
+
+      curl -i -X POST \
+        https://dev-329615.okta.com/oauth2/aus3nfybl0MgXSZtd357/v1/token \
+        -H 'origin: http://localhost' \
+        -H 'accept: application/json' \
+        -H 'content-type: application/x-www-form-urlencoded' \
+        -d 'grant_type=authorization_code' \
+        -d 'redirect_uri=http://localhost/html/wf-oidc-2' \
+        -d 'client_id=0oa3mfw3bp0qhpjHX357' \
+        -d 'code=OwVdf3wo1IFsq6dQ5ccXKZ-BL9rRqPeqJ927HXgww9Q' \
+        -d 'code_verifier=63tv1teiaew6eofvrkzaydghjhab3hm2d50oaldh6h7rq7ktt308'
+  -->
+
+  <FaultRules/>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>AM-Redemption-Request</Name>
+      </Step>
+    </Request>
+    <Response>
+    </Response>
+  </PreFlow>
+
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <Flows/>
+  <HTTPTargetConnection>
+    <SSLInfo>
+      <Enabled>true</Enabled>
+    </SSLInfo>
+    <URL>https://will-be-replaced.org</URL>
+  </HTTPTargetConnection>
+</TargetEndpoint>

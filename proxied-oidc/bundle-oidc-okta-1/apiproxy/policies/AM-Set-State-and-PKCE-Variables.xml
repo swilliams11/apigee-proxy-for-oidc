@@ -1,0 +1,62 @@
+<AssignMessage name='AM-Set-State-and-PKCE-Variables'>
+
+  <!-- must store this state, and the challenge, in cache -->
+  <AssignVariable>
+    <Name>oidc_state</Name>
+    <Template>{sha256Hex(messageid)}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>pkce_verifier</Name>
+    <!--
+         Per https://datatracker.ietf.org/doc/html/rfc7636#section-4.1
+         This is a high-entropy cryptographic random STRING using the
+         unreserved characters [A-Z] / [a-z] / [0-9] / "-" / "." / "_" / "~"
+         from Section 2.3 of [RFC3986], with a minimum length of 43 characters
+         and a maximum length of 128 characters.
+    -->
+    <Template>{randomLong()}-{createUuid()}-{randomLong()}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <!-- base64url(sha256(verifier)) -->
+    <Name>pkce_code_challenge</Name>
+    <Template>{sha256Base64(pkce_verifier)}</Template>
+  </AssignVariable>
+
+  <!-- Apigee does not currently include a base64url function. -->
+  <!-- These assignments convert base64 to base64url. -->
+  <AssignVariable>
+    <Name>pkce_code_challenge</Name>
+    <Template>{replaceAll(pkce_code_challenge,plus_regex,minus)}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>pkce_code_challenge</Name>
+    <Template>{replaceAll(pkce_code_challenge,slash_regex,underscore)}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>pkce_code_challenge</Name>
+    <Template>{replaceAll(pkce_code_challenge,equals_regex,empty_string)}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>oidc_information</Name>
+    <Template>{
+  "original_messageid" : "{messageid}",
+  "state" : "{oidc_state}",
+  "apigee_client_id" : "{client_id}",
+  "pkce_verifier" : "{pkce_verifier}",
+  "pkce_challenge" : "{pkce_code_challenge}",
+  "return_url" : "{request.queryparam.from}"
+}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <!-- this form is nicely cacheable -->
+    <Name>oidc_information_b64</Name>
+    <Template>{encodeBase64(oidc_information)}</Template>
+  </AssignVariable>
+
+</AssignMessage>

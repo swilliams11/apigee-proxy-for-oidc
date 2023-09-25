@@ -1,0 +1,3 @@
+<DecodeJWT name='DecodeJWT-3'>
+  <Source>accesstoken.idp_access_token</Source>
+</DecodeJWT>

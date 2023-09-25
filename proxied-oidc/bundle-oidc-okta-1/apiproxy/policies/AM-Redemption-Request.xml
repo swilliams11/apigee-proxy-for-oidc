@@ -1,0 +1,41 @@
+<AssignMessage name='AM-Redemption-Request'>
+  <AssignVariable>
+    <Name>payload_precursor</Name>
+    <Template><![CDATA[
+grant_type=authorization_code&
+redirect_uri={app.redirectUri}&
+code={request.queryparam.code}&
+code_verifier={pkce_verifier}
+]]></Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>payload</Name>
+    <Template>{replaceAll(payload_precursor,whitespace_pattern,empty_string)}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>private.authz_blob</Name>
+    <Template>{idp.clientId}:{idp.clientSecret}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>private.authz_b64encoded</Name>
+    <Template>Basic {encodeBase64(private.authz_blob)}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>target.url</Name>
+    <Template ref='propertyset.idp.tmpl_token_endpoint'/>
+  </AssignVariable>
+
+  <Set>
+    <Verb>POST</Verb>
+    <Headers>
+      <Header name='authorization'>{private.authz_b64encoded}</Header>
+      <Header name='accept'>application/json</Header>
+      <Header name='cache-control'>no-cache</Header>
+    </Headers>
+    <Payload contentType="application/x-www-form-urlencoded">{payload}</Payload>
+  </Set>
+</AssignMessage>

@@ -1,0 +1,43 @@
+<AssignMessage name='AM-Diagnostics'>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignVariable>
+    <Name>request.header.authorization</Name>
+    <Template>Bearer {extracted.apigee_access_token}</Template>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>oauthV2.failed</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>oauthV2.OAuthV2-VerifyAccessToken-Continue.fault.name</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>oauthv2accesstoken.OAuthV2-GetTokenAttributes.access_token</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>oauthv2accesstoken.OAuthV2-GetTokenAttributes.expires_in</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>oauthv2accesstoken.OAuthV2-GetTokenAttributes.access_token.okta_id</Ref>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>oauthv2accesstoken.OAuthV2-GetTokenAttributes.access_token.okta_refresh</Ref>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>diags</Name>
+    <Ref>oauthv2accesstoken.OAuthV2-GetTokenAttributes.accesstoken.okta_id</Ref>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>value7</Name>
+    <Ref>fault.name</Ref>
+  </AssignVariable>
+
+</AssignMessage>

@@ -1,0 +1,7 @@
+<AssignMessage name='AM-RemoveAuthzHeader'>
+  <Remove>
+    <Headers>
+      <Header name='Authorization'/>
+    </Headers>
+  </Remove>
+</AssignMessage>

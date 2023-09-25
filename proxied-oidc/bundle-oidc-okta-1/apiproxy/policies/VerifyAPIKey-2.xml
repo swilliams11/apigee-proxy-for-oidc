@@ -1,0 +1,3 @@
+<VerifyAPIKey name='VerifyAPIKey-2'>
+  <APIKey ref='apigee_client_id'/>
+</VerifyAPIKey>

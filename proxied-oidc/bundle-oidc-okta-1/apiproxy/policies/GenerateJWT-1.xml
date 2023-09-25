@@ -1,0 +1,19 @@
+<GenerateJWT name='GenerateJWT-1'>
+  <Algorithm>RS256</Algorithm>
+  <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+  <PrivateKey>
+    <Value ref="private.rsa_private_key"/>
+    <Id ref='rsa_private_key_id'/>
+  </PrivateKey>
+  <Subject ref="jwt.DecodeJWT-3.decoded.claim.sub" />
+  <Issuer ref='issuer-of-jwt'/>
+  <Audience>service-specific-audience-here</Audience>
+  <ExpiresIn>60s</ExpiresIn>
+
+  <AdditionalClaims>
+    <Claim name='scope' ref='proxy.pathsuffix'/>
+    <Claim name='original-issuer' ref='jwt.DecodeJWT-3.decoded.claim.iss'/>
+  </AdditionalClaims>
+
+  <OutputVariable>generated-jwt-token</OutputVariable>
+</GenerateJWT>

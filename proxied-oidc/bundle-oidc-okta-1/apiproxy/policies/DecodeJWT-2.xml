@@ -1,0 +1,3 @@
+<DecodeJWT name='DecodeJWT-2'>
+  <Source>idp_response.id_token</Source>
+</DecodeJWT>

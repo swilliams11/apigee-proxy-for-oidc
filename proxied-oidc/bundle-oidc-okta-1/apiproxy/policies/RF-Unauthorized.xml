@@ -1,0 +1,19 @@
+<RaiseFault name='RF-Unauthorized'>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <FaultResponse>
+    <Set>
+      <Headers>
+        <Header name='login-path'>{oidc.loginPath}</Header>
+      </Headers>
+      <Payload contentType='application/json'>{
+  "error" : {
+    "code" : 401.01,
+    "message" : "unauthorized."
+  }
+}
+</Payload>
+      <StatusCode>401</StatusCode>
+      <ReasonPhrase>Not Authorized</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+</RaiseFault>

@@ -1,0 +1,83 @@
+<AssignMessage name='AM-Settings'>
+
+  <AssignVariable>
+    <Name>authorize_endpoint</Name>
+    <Template ref='propertyset.idp.tmpl_authorize_endpoint'/>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>jwks_endpoint</Name>
+    <Template ref='propertyset.idp.tmpl_jwks_endpoint'/>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>idp.endpoint.token</Name>
+    <Template ref='propertyset.idp.tmpl_token_endpoint'/>
+  </AssignVariable>
+
+  <!--
+    NB:
+    the URL resulting from the following must be registered as a valid
+    callback with the OIDC provider, for the given client ID.
+  -->
+  <AssignVariable>
+    <Name>app.redirectUri</Name>
+    <Template ref='propertyset.idp.tmpl_redirect_uri'/>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>oidc.loginPath</Name>
+    <Template ref='propertyset.idp.tmpl_login_path'/>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>idp.clientId</Name>
+    <Ref>propertyset.idp.okta_clientId</Ref>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>idp.clientSecret</Name>
+    <Ref>propertyset.idp.okta_clientSecret</Ref>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>rsa_private_key_id</Name>
+    <Value>eb376588-7a0d</Value>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>private.rsa_private_key</Name>
+    <!-- Sample only. Do not use in production. -->
+    <Value>
+-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCU7gB22MxQ5+ld
+iPRopL9npsc4OdGM+4GcfE9PtmTdjSQW8/9SA9Z5QfmJ+oTItL3ULMeddxoScuBf
+/VzERIxiqvPUiztc9pI4DlZsne6Xw7nYbn7c1RHhzwExw/zNJKkrXHkGmCfBqCWY
+azfIhdK95gAzsBUJCp8A97UfzZXebLQbHwrdlJutwV9YcAI1e2fqovYs2YTB3U9t
+4UyjQ4usCeegp9tBzs7JzjuGbe0dAe4qB3dNNBZgN3EiAJVcJJgrB07QyUQSBXqv
+75FliVGGKEhPWNtJu0z5w5rxR1YJEclGpBaAZmJb2C/fYCKoSB5hAweVsrvGCKv/
+7p00JQzLAgMBAAECggEACG6d1mXr9vMBVOtCu01xwyTkNYnlFEc8lovdibT9s9og
+edQ3V6Wz+q65TDLoWkp6mGh4pfoBMVLIUNS2pwdHHKuXeN86WzTOINbxQt7K1Xjn
+v2NNnBGDHNIjTlEo+sNPL49PWb7NXyi246MwtaRSnor9waZJIXdZVnYdoSzEGFpO
+OFQRbroPPiK9HVefxJQT2wL2jpInyFdTaydFZW30T8NQ7IZMC30DYJd7ESkJg2pa
+x5yPZMDmmHIr7L3AZJg+urCn5oQ9GfRC+pBq3vAM9Bv6H3Nb/0ySEWKNEom1QjQR
+GXhXV7IVCk5DCw/o/kSMXRNONxJm0o06pHWTQylg0QKBgQDRaGaPTFcr0Yjr58CM
+EPneE9vR5STK0v+qAz0JJDxp3fpJ3SinstdIjgNdGK6sxB8Wb+pusoKHWLJ7l9xr
+1hBPKw7aLhOpxaEob+9Fk4yhEkGKPsy1E6xAxsaYWSQ/C2DFNkM578AQ+NhplqTQ
+MhDEFepCQ8mblojJhBCFtTBUTQKBgQC2ENhptmmYDy1noIjeHApeeerPkf2n9fv1
+yfDs2lvpXoRDl5fDQRIijrN+hmFB5Jgj754yPnXgTsPLkaJrFO16ulnFxKnhdxe3
+FEMtuZ5a5Dwtk1pL1d1Hb9YHEpfq0oyJoAnqORHGyNIHSCdH8WiW1dA4aYC37Aqd
+RtjO9sfRdwKBgQC+db0qQl3ajdaB8aQwANSyRs+dBVPEYcqFADMIWHvWMj4N5meu
+tzuVUwz+JI/itPItfxbzHcsYfPTA8qtZLTZiOyBkEppxxD1CwSQX3Q6ABVG1Ak8/
+tqfptqE0OYd9C8U1OZhFXqkLBroWtxwp/A9BuUj6ghshNvYsisBYTCar1QKBgAzu
+j2Ca2084rMHyjiYwma/yOvJ5bSnz9+ySZnF8ZRDjbMOcTeRJh+86cZdoFhpnEUNk
+Lrlk5FyFW7Tm6EFw4BlaiSvZ9zMTkXSolMj3qT7NfVTDZaODUk9Tq0EfWfkM8XyJ
+CItBeHjFJN3tixS6GfK0xzBqlgD6XBqlwJqavsCrAoGAbAaJ0yPN+zoiTRwrgvcZ
+hnLDyWVxKNepghCYlRIV6ODwzhpYuJwS4VvFqLf/m6JaEgch7V8j6k4huaoyIZui
+EUeZy6Zx3BLjJibWsbNfU1wJjysVjVB8nIq7XI/DWxrGw2Acm5rkRH62qGIRaYnn
+lEFUSJnnhDUTq4FJHoOgQ5g=
+-----END PRIVATE KEY-----
+    </Value>
+  </AssignVariable>
+
+
+</AssignMessage>

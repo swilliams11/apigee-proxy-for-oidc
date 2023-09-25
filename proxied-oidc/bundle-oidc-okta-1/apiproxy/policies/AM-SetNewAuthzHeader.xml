@@ -1,0 +1,7 @@
+<AssignMessage name='AM-SetNewAuthzHeader'>
+  <Set>
+    <Headers>
+      <Header name='Authorization'>Bearer {generated-jwt-token}</Header>
+    </Headers>
+  </Set>
+</AssignMessage>

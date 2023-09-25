@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Proxied OIDC demo</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A tool to demonstrate OIDC login"/>
+  </head>
+
+  <!-- ======================================================= -->
+  <body>
+    <div class='container'>
+      <div class='banner'>
+        <h2>Proxied OIDC Demonstration App</h2>
+        <div>This demonstration uses OIDC and PKCE for signin via an Apigee API proxy.</div>
+        <div class="alert alert-warning alert-dismissible fade" role="alert" id="mainalert"></div>
+        <div id='buildversion' class='buildversion'>version <span id='version_id'>??</span></div>
+      </div>
+
+      <div class='panel-group'>
+        <div class='panel panel-left' id='panel_left'>
+          <div id='endpoint'>
+            <p>Endpoint</p>
+            <input type='text' id='ta-endpoint' class='form-control input'
+                   value='https://placeholder.io'
+                   spellcheck='false'>
+          </div>
+          <div id='clientid'>
+            <p>Client ID</p>
+            <input type='text' id='ta-clientid' class='form-control input'
+                   value='placeholder'
+                   spellcheck='false'>
+          </div>
+
+          <div id='accesstoken'>
+            <p>Access Token</p>
+            <input type='text' id='ta-accesstoken' class='form-control input' disabled
+                   value='placeholder'
+                   spellcheck='false'>
+          </div>
+
+        </div>
+
+        <div class='panel panel-center' id='panel_buttons'>
+          <button type="button" class="btn btn-outline-secondary btn-lg btn-send" title='Send the AJAX call'>
+            <span class="oi oi-media-play"></span>
+          </button>
+          <button type="button" class="btn btn-outline-secondary btn-lg btn-reset" title='reset token'>
+            <span class="oi oi-circle-x"></span>
+          </button>
+        </div>
+
+        <div class='panel panel-right clearfix' id='panel_right'>
+          <div id='response'>
+            <p>Response</p>
+            <textarea rows=128 cols=48 id='ta-response' spellcheck='false' class='plaintextvalue'></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <div class='footer'>
+      </div>
+
+    </div>
+    <script src="js/main.js" charset="utf-8"></script>
+  </body>
+
+</html>

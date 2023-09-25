@@ -1,0 +1,23 @@
+<AssignMessage name='AM-Signout-Response'>
+  <AssignVariable>
+    <Name>id_token</Name>
+    <Template>unknown</Template>
+  </AssignVariable>
+  <AssignVariable>
+    <Name>signout_url</Name>
+    <Template>https://{okta.domain}/oauth2/v1/logout?id_token_hint={id_token}</Template>
+  </AssignVariable>
+  <Set>
+    <Headers>
+      <Header name='Location'>{signout_url}</Header>
+      <Header name='Access-Control-Allow-Origin'>http://localhost:3000</Header>
+      <Header name="Access-Control-Allow-Headers">*</Header>
+      <Header name="Access-Control-Allow-Credentials">true</Header>
+      <Header name='Access-Control-Expose-Headers'>Location</Header>
+      <Header name="Access-Control-Allow-Methods">OPTIONS, GET, PUT, POST, DELETE</Header>
+    </Headers>
+    <Payload contentType='text/plain'>sign out: {signout_url}</Payload>
+    <StatusCode>302</StatusCode>
+    <ReasonPhrase>Found</ReasonPhrase>
+  </Set>
+</AssignMessage>

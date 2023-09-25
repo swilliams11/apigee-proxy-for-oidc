@@ -1,0 +1,145 @@
+<ProxyEndpoint name="echo">
+  <Description>echo</Description>
+  <HTTPProxyConnection>
+    <BasePath>/oidc-okta-1/echo</BasePath>
+    <Properties/>
+    <VirtualHost>secure</VirtualHost>
+  </HTTPProxyConnection>
+
+  <FaultRules>
+
+    <FaultRule name="invalid-access-token">
+      <Step>
+        <Name>RF-Unauthorized</Name>
+      </Step>
+      <Condition>(fault.name = "InvalidAccessToken") OR (fault.name = "invalid_access_token")</Condition>
+    </FaultRule>
+
+    <FaultRule name="access_token_expired">
+      <Step>
+        <Name>RF-Unauthorized</Name>
+      </Step>
+      <Condition>fault.name = "access_token_expired"</Condition>
+    </FaultRule>
+
+  </FaultRules>
+  <DefaultFaultRule name="fault-rule">
+    <AlwaysEnforce>true</AlwaysEnforce>
+    <Step>
+      <Name>AM-Inject-Proxy-Revision-Header</Name>
+    </Step>
+  </DefaultFaultRule>
+
+
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>CORS-1</Name>
+      </Step>
+      <Step>
+        <Name>AM-Basics</Name>
+      </Step>
+      <Step>
+        <Name>AM-Settings</Name>
+      </Step>
+    </Request>
+
+    <Response>
+      <Step>
+        <Name>AM-Clean-Request-Headers-From-Response</Name>
+      </Step>
+      <Step>
+        <Name>AM-Inject-Proxy-Revision-Header</Name>
+      </Step>
+    </Response>
+  </PreFlow>
+
+  <PostFlow name="PostFlow">
+    <Request>
+    </Request>
+    <Response>
+    </Response>
+  </PostFlow>
+
+  <PostClientFlow name="PostFlow">
+    <Request>
+    </Request>
+    <Response>
+    </Response>
+  </PostClientFlow>
+
+  <Flows>
+
+    <Flow name="CORS preflight">
+      <Condition>request.verb = "OPTIONS"</Condition>
+      <Request>
+      </Request>
+      <Response>
+      </Response>
+    </Flow>
+
+    <Flow name="echo-get">
+      <Condition>((proxy.pathsuffix MatchesPath "/get") OR
+          (proxy.pathsuffix MatchesPath "/hello")) and (request.verb = "GET")</Condition>
+      <Request>
+
+      <Step>
+        <Name>RF-Unauthorized</Name>
+        <Condition>request.header.authorization = null</Condition>
+      </Step>
+
+      <Step>
+        <Name>OAuthV2-VerifyAccessToken-Continue</Name>
+      </Step>
+
+      <Step>
+        <Name>AM-Diagnostics</Name>
+      </Step>
+
+      <Step>
+        <Name>RF-Expired-Token</Name>
+        <Condition>oauthV2.OAuthV2-VerifyAccessToken-Continue.fault.name = "keymanagement.service.access_token_expired"</Condition>
+      </Step>
+
+      <Step>
+        <Name>RF-Unauthorized</Name>
+        <Condition>oauthV2.OAuthV2-VerifyAccessToken-Continue.fault.name ~~ ".+"</Condition>
+      </Step>
+
+      <Step>
+        <Name>AM-RemoveAuthzHeader</Name>
+      </Step>
+
+      <Step>
+        <!-- Just for diagnostic purposes, -->
+        <!-- decode the JWT that had been issued by the IDP. -->
+        <Name>DecodeJWT-3</Name>
+      </Step>
+
+      </Request>
+      <Response>
+      </Response>
+    </Flow>
+
+    <Flow name="unknown request">
+      <Request>
+        <Step>
+          <Name>RF-Unknown-Request</Name>
+        </Step>
+      </Request>
+      <Response>
+      </Response>
+    </Flow>
+
+  </Flows>
+
+  <RouteRule name="loopback">
+    <Condition>request.verb = "OPTIONS"</Condition>
+  </RouteRule>
+
+  <RouteRule name="mainroute">
+    <TargetEndpoint>echo</TargetEndpoint>
+  </RouteRule>
+
+
+</ProxyEndpoint>

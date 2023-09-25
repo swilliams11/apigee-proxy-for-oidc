@@ -1,0 +1,24 @@
+<AssignMessage name='AM-Return-to-Page'>
+
+  <!-- clear the original Set-Cookie header(s) -->
+  <Remove>
+    <Headers>
+      <Header name='Set-Cookie'/>
+    </Headers>
+  </Remove>
+
+  <Set>
+    <!--
+         Return the Apigee-generated opaque token to the caller.
+         Do not return the IdP-generated JWT to the caller.
+    -->
+    <Headers>
+      <Header name='Set-Cookie'>ACCESS={apigee.access_token}; HttpOnly; SameSite=None; Secure; Path=/</Header>
+      <Header name='Location'>{return_url}#{apigee.access_token}</Header>
+    </Headers>
+    <ReasonPhrase>Found</ReasonPhrase>
+    <StatusCode>302</StatusCode>
+    <Payload contentType="text/plain">Redirect to {return_url}</Payload>
+  </Set>
+
+</AssignMessage>

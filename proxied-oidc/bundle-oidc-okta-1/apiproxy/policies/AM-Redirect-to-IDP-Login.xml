@@ -1,0 +1,21 @@
+<AssignMessage name='AM-Redirect-to-IDP-Login'>
+
+  <AssignVariable>
+    <Name>authorize_query</Name>
+    <Template ref='propertyset.idp.tmpl_authorize_query'/>
+  </AssignVariable>
+
+  <AssignVariable>
+    <Name>authorize_url</Name>
+    <Template>{authorize_endpoint}?{authorize_query}</Template>
+  </AssignVariable>
+
+  <Set>
+    <Headers>
+      <Header name='Location'>{authorize_url}</Header>
+    </Headers>
+    <ReasonPhrase>Found</ReasonPhrase>
+    <StatusCode>302</StatusCode>
+    <Payload contentType="text/plain">Redirect to {authorize_url}</Payload>
+  </Set>
+</AssignMessage>
