@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "firebase": "^10.10.0"
+  },
+  "name": "google-identity-platform",
+  "description": "This is a pre-built webapp that connects to the OIDC proxy.",
+  "version": "1.0.0",
+  "main": "login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=development"
+  },
+  "author": "Sean Williams",
+  "license": "ISC"
+}
