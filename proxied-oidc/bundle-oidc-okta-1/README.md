@@ -1,8 +1,8 @@
-# The Proxy for the Okta OIDC Provider
+# The Proxy for the Auth0 OIDC Provider
 
-This is the Apigee proxy for the Okta Identity provider.
+This is the Apigee proxy for the Auth0 Identity provider.
 
 Actually this bundle proxies:
- - the Okta tenant
+ - the Auth0 tenant
  - an echo service
 

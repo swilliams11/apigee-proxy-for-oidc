@@ -1,6 +1,6 @@
 # Proxied OIDC provider
 
-This repo contains an example of an API proxy that proxies an Open ID Connect Identity Provider, Okta.
+This repo contains an example of an API proxy that proxies an Open ID Connect Identity Provider, Auth0.
 
 ## Motivation
 
@@ -18,14 +18,14 @@ OIDC is based on APIs. Apigee simply proxies the requests from the client app to
 ## Using this example
 
 There are two parts here:
-- [a bundle for the Apigee proxy](./bundle-oidc-okta-1) that sits in front of Okta. Deploy this into Apigee hybrid or X.
+- [a bundle for the Apigee proxy](./bundle-oidc-okta-1) that sits in front of Auth0. Deploy this into Apigee hybrid or X.
 - [the web app](./oidc-demo-webapp) that invokes the API Proxy
 
 To use this demonstration yourself, you will need to:
 
-1. get an Okta account.  A free developer account is fine.
-  - set up a custom Authorization server in Okta
-  - create an Okta Application.
+1. get an Auth0 account.  A free developer account is fine.
+  - set up a custom Authorization server in Auth0
+  - create an Auth0 Application.
     - Application Type: Web
     - redirect URL: https://YOUR_DOMAIN/oidc-okta-1/callback
       where YOUR_DOMAIN is the domain of your Apigee X or hybrid environment group.
@@ -33,7 +33,7 @@ To use this demonstration yourself, you will need to:
     - note the client\_id and client\_secret for this app.
   - associate one or more users to that app.  (This allows users to signin for that app)
 
-2. modify the [idp.properties](./bundle-oidc-okta-1/apiproxy/resources/properties/idp.properties) file within the API proxy, to specify the four items from yoru Okta tenant:
+2. modify the [idp.properties](./bundle-oidc-okta-1/apiproxy/resources/properties/idp.properties) file within the API proxy, to specify the four items from your Auth0 tenant:
   - domain
   - authzServer
   - clientId
@@ -73,9 +73,11 @@ To use this demonstration yourself, you will need to:
 
 [See here](https://youtu.be/SlpqmkB6XVA)
 
-
-
 ## Author
 
 Dino Chiesa
 goDino@google.com
+
+###  Modified By
+Sean Williams
+williamssean@google.com
