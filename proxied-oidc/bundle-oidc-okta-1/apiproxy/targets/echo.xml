@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TargetEndpoint name="echo">
   <Description/>
   <FaultRules/>
   <PreFlow name="PreFlow">
     <Request>
-        <!--
+      <!--
         This local token generation could be replaced by an RFC8693-style token
         exchange.
 

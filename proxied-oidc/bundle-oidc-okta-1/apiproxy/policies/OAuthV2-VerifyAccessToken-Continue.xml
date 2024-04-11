@@ -1,7 +1,7 @@
-<OAuthV2 name='OAuthV2-VerifyAccessToken-Continue' continueOnError='true'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAuthV2 name="OAuthV2-VerifyAccessToken-Continue" continueOnError="true">
   <Operation>VerifyAccessToken</Operation>
   <!-- by default, finds the token in the Authorization header -->
-
   <!--
   <Scope>xyz</Scope>
   -->

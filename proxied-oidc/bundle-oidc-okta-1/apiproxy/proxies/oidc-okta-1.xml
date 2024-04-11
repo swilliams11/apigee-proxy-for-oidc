@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="oidc-okta-1">
   <Description>proxy endpoint for OIDC base</Description>
   <HTTPProxyConnection>
@@ -5,7 +6,6 @@
     <Properties/>
     <VirtualHost>secure</VirtualHost>
   </HTTPProxyConnection>
-
   <FaultRules/>
   <DefaultFaultRule name="fault-rule">
     <AlwaysEnforce>true</AlwaysEnforce>
@@ -13,7 +13,6 @@
       <Name>AM-Inject-Proxy-Revision-Header</Name>
     </Step>
   </DefaultFaultRule>
-
   <PreFlow name="PreFlow">
     <Request>
       <Step>
@@ -32,7 +31,6 @@
       </Step>
     </Response>
   </PreFlow>
-
   <PostFlow name="PostFlow">
     <Request>
     </Request>
@@ -42,16 +40,13 @@
       </Step>
     </Response>
   </PostFlow>
-
   <PostClientFlow name="PostFlow">
     <Request>
     </Request>
     <Response>
     </Response>
   </PostClientFlow>
-
   <Flows>
-
     <Flow name="login">
       <Condition>(proxy.pathsuffix MatchesPath "/login") and (request.verb = "GET")</Condition>
       <Request>
@@ -64,7 +59,6 @@
           <Condition>request.queryparam.apikey = null</Condition>
         </Step>
       </Request>
-
       <Response>
         <Step>
           <Name>VerifyAPIKey-1</Name>
@@ -80,7 +74,6 @@
         </Step>
       </Response>
     </Flow>
-
     <Flow name="callback">
       <Condition>proxy.pathsuffix MatchesPath "/callback"</Condition>
       <Request>
@@ -105,7 +98,6 @@
         <Step>
           <Name>KVM-Delete-Authz-State</Name>
         </Step>
-
         <Step>
           <Name>VerifyAPIKey-2</Name>
         </Step>
@@ -123,7 +115,6 @@
         </Step>
       </Response>
     </Flow>
-
     <Flow name="signout">
       <Request>
       </Request>
@@ -134,7 +125,6 @@
       </Response>
       <Condition>proxy.pathsuffix MatchesPath "/signout"</Condition>
     </Flow>
-
     <Flow name="unknown request">
       <Request>
         <Step>
@@ -144,15 +134,11 @@
       <Response>
       </Response>
     </Flow>
-
   </Flows>
-
   <RouteRule name="exchange-code-for-token">
     <TargetEndpoint>token</TargetEndpoint>
     <Condition>(proxy.pathsuffix MatchesPath "/callback") and (request.verb = "GET")</Condition>
   </RouteRule>
-
   <!-- otherwise, loopback -->
   <RouteRule name="NoRouteRule"/>
-
 </ProxyEndpoint>

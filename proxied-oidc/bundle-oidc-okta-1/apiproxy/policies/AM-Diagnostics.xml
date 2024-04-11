@@ -1,10 +1,10 @@
-<AssignMessage name='AM-Diagnostics'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-Diagnostics">
   <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
   <AssignVariable>
     <Name>request.header.authorization</Name>
     <Template>Bearer {extracted.apigee_access_token}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>diags</Name>
     <Ref>oauthV2.failed</Ref>
@@ -29,15 +29,16 @@
     <Name>diags</Name>
     <Ref>oauthv2accesstoken.OAuthV2-GetTokenAttributes.access_token.okta_refresh</Ref>
   </AssignVariable>
-
   <AssignVariable>
     <Name>diags</Name>
     <Ref>oauthv2accesstoken.OAuthV2-GetTokenAttributes.accesstoken.okta_id</Ref>
   </AssignVariable>
-
   <AssignVariable>
     <Name>value7</Name>
     <Ref>fault.name</Ref>
   </AssignVariable>
-
+  <AssignVariable>
+    <Name>idp_response.id_token</Name>
+    <Ref>accesstoken.idp_id_token</Ref>
+  </AssignVariable>
 </AssignMessage>

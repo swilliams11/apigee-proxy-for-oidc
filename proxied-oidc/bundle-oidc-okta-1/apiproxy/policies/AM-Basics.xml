@@ -1,37 +1,31 @@
-<AssignMessage name='AM-Basics'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-Basics">
   <AssignVariable>
     <Name>plus_regex</Name>
     <Value>\+</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>minus</Name>
     <Value>-</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>slash_regex</Name>
     <Value>/</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>underscore</Name>
     <Value>_</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>whitespace_pattern</Name>
     <Value>\s+</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>empty_string</Name>
-    <Value></Value>
+    <Value/>
   </AssignVariable>
-
   <AssignVariable>
     <Name>equals_regex</Name>
     <Value>=</Value>
   </AssignVariable>
-
 </AssignMessage>

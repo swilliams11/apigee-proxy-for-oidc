@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OAuthV2 name="OAuthV2-Generate-Access-Token" continueOnError="false">
   <Operation>GenerateAccessToken</Operation>
   <!--
@@ -8,16 +9,13 @@
 
       This is set according to the expiry on the JWT access_token.
   -->
-  <ExpiresIn ref='desired_apigee_token_lifetime'>898000</ExpiresIn>
-
+  <ExpiresIn ref="desired_apigee_token_lifetime">898000</ExpiresIn>
   <SupportedGrantTypes>
     <GrantType>client_credentials</GrantType>
   </SupportedGrantTypes>
-
   <!--
   <Scope>request.formparam.scope</Scope>
   -->
-
   <!--
       These attributes get associated to the token.
       They will be available to the api proxy whenever the token is
@@ -25,16 +23,13 @@
   -->
   <Attributes>
     <!-- If display=false, the attribute won't be delivered in the auth code response. -->
-    <Attribute name='idp_id_token' ref='idp_response.id_token' display='false'/>
-    <Attribute name='idp_refresh_token' ref='idp_response.refresh_token' display='false'/>
-    <Attribute name='idp_access_token' ref='idp_response.access_token' display='false'/>
-    <Attribute name='original_client_ip' ref='client.ip' display='false'/>
-
+    <Attribute name="idp_id_token" ref="idp_response.id_token" display="false"/>
+    <Attribute name="idp_refresh_token" ref="idp_response.refresh_token" display="false"/>
+    <Attribute name="idp_access_token" ref="idp_response.access_token" display="false"/>
+    <Attribute name="original_client_ip" ref="client.ip" display="false"/>
     <!-- At time of verify, these attributes will be populated into variables. -->
   </Attributes>
-
   <RFCCompliantRequestResponse>true</RFCCompliantRequestResponse>
-
   <GenerateResponse enabled="false"/>
   <!--
   NO NO NO - this apparently is no longer true. Maybe see b/115735130

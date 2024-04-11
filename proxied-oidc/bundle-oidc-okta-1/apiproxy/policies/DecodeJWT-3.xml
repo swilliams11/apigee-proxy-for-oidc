@@ -1,3 +1,4 @@
-<DecodeJWT name='DecodeJWT-3'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DecodeJWT name="DecodeJWT-3">
   <Source>accesstoken.idp_access_token</Source>
 </DecodeJWT>

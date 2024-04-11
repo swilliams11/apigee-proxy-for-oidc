@@ -1,5 +1,6 @@
-<VerifyAPIKey name='VerifyAPIKey-1'>
-  <APIKey ref='request.queryparam.apikey'/>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<VerifyAPIKey name="VerifyAPIKey-1">
+  <APIKey ref="request.queryparam.apikey"/>
   <!--
       Variables populated by this policy: verifyapikey.{policy_name}.
 

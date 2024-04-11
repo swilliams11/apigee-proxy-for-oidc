@@ -1,8 +1,9 @@
-<KeyValueMapOperations name='KVM-Delete-Authz-State'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-Delete-Authz-State">
   <MapName>settings</MapName>
   <Delete>
     <Key>
-      <Parameter ref='request.queryparam.state'/>
+      <Parameter ref="request.queryparam.state"/>
     </Key>
   </Delete>
 </KeyValueMapOperations>

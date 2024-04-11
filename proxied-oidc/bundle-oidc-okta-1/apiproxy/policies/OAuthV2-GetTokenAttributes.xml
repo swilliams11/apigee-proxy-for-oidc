@@ -1,5 +1,6 @@
-<GetOAuthV2Info name="OAuthV2-GetTokenAttributes" continueOnError='true'>
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GetOAuthV2Info name="OAuthV2-GetTokenAttributes" continueOnError="true">
+  <!--
   <ClientId ref="apigee.client_id"/>
 -->
   <AccessToken ref="access_token"/>
@@ -13,5 +14,4 @@ oauthv2accesstoken.OAuthV2-GetTokenAttributes.expires_in
 oauthv2accesstoken.OAuthV2-GetTokenAttributes.accesstoken.CUSTOM_ATTR
 ...
 -->
-
 </GetOAuthV2Info>

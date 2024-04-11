@@ -1,10 +1,9 @@
-<AssignMessage name='AM-Decode-OIDC-Info'>
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-Decode-OIDC-Info">
   <AssignVariable>
     <Name>oidc_information</Name>
     <Template>{decodeBase64(private.oidc_information_b64)}</Template>
   </AssignVariable>
-
   <!--
   {
     "original_messageid" : "{messageid}",
@@ -15,45 +14,36 @@
     "return_url" : "{request.queryparam.from}"
   }
   -->
-
   <AssignVariable>
     <Name>path1</Name>
     <Value>$.pkce_verifier</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>pkce_verifier</Name>
     <Template>{jsonPath(path1,oidc_information)}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>path2</Name>
     <Value>$.return_url</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>return_url</Name>
     <Template>{jsonPath(path2,oidc_information)}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>path3</Name>
     <Value>$.apigee_client_id</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>apigee_client_id</Name>
     <Template>{jsonPath(path3,oidc_information)}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>path4</Name>
     <Value>$.apigee_client_secret</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>apigee_client_secret</Name>
     <Template>{jsonPath(path4,oidc_information)}</Template>
   </AssignVariable>
-
 </AssignMessage>

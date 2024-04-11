@@ -1,7 +1,8 @@
-<Javascript name='JS-ExtractJsonToContextVars' timeLimit='200' >
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Javascript name="JS-ExtractJsonToContextVars" timeLimit="200">
   <Properties>
-    <Property name='prefix'>idp_response</Property>
-    <Property name='source'>response.content</Property>
+    <Property name="prefix">idp_response</Property>
+    <Property name="source">response.content</Property>
   </Properties>
   <ResourceURL>jsc://extractJsonToContextVars.js</ResourceURL>
 </Javascript>

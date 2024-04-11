@@ -1,3 +1,4 @@
-<VerifyAPIKey name='VerifyAPIKey-2'>
-  <APIKey ref='apigee_client_id'/>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<VerifyAPIKey name="VerifyAPIKey-2">
+  <APIKey ref="apigee_client_id"/>
 </VerifyAPIKey>

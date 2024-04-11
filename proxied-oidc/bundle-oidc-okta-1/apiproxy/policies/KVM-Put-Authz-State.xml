@@ -1,10 +1,11 @@
-<KeyValueMapOperations name='KVM-Put-Authz-State'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-Put-Authz-State">
   <MapName>settings</MapName>
-  <Put override='true'>
+  <Put override="true">
     <Key>
-      <Parameter ref='oidc_state'/>
+      <Parameter ref="oidc_state"/>
     </Key>
-    <Value ref='oidc_information_b64'/>
+    <Value ref="oidc_information_b64"/>
   </Put>
   <ExpiryTimeInSecs>58</ExpiryTimeInSecs>
 </KeyValueMapOperations>

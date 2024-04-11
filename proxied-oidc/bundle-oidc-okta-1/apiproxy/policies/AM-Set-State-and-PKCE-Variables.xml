@@ -1,11 +1,10 @@
-<AssignMessage name='AM-Set-State-and-PKCE-Variables'>
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-Set-State-and-PKCE-Variables">
   <!-- must store this state, and the challenge, in cache -->
   <AssignVariable>
     <Name>oidc_state</Name>
     <Template>{sha256Hex(messageid)}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>pkce_verifier</Name>
     <!--
@@ -17,30 +16,25 @@
     -->
     <Template>{randomLong()}-{createUuid()}-{randomLong()}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <!-- base64url(sha256(verifier)) -->
     <Name>pkce_code_challenge</Name>
     <Template>{sha256Base64(pkce_verifier)}</Template>
   </AssignVariable>
-
   <!-- Apigee does not currently include a base64url function. -->
   <!-- These assignments convert base64 to base64url. -->
   <AssignVariable>
     <Name>pkce_code_challenge</Name>
     <Template>{replaceAll(pkce_code_challenge,plus_regex,minus)}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>pkce_code_challenge</Name>
     <Template>{replaceAll(pkce_code_challenge,slash_regex,underscore)}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>pkce_code_challenge</Name>
     <Template>{replaceAll(pkce_code_challenge,equals_regex,empty_string)}</Template>
   </AssignVariable>
-
   <AssignVariable>
     <Name>oidc_information</Name>
     <Template>{
@@ -52,11 +46,9 @@
   "return_url" : "{request.queryparam.from}"
 }</Template>
   </AssignVariable>
-
   <AssignVariable>
     <!-- this form is nicely cacheable -->
     <Name>oidc_information_b64</Name>
     <Template>{encodeBase64(oidc_information)}</Template>
   </AssignVariable>
-
 </AssignMessage>

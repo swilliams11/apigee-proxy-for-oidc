@@ -1,7 +1,8 @@
-<AssignMessage name='AM-RemoveAuthzHeader'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-RemoveAuthzHeader">
   <Remove>
     <Headers>
-      <Header name='Authorization'/>
+      <Header name="Authorization"/>
     </Headers>
   </Remove>
 </AssignMessage>

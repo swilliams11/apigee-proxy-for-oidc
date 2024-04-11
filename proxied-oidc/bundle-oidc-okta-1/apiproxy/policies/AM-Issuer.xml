@@ -1,4 +1,5 @@
-<AssignMessage name='AM-Issuer'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-Issuer">
   <AssignVariable>
     <Name>issuer-of-jwt</Name>
     <Template>urn://apigee/{organization.name}/{environment.name}/{apiproxy.name}/r{apiproxy.revision}</Template>

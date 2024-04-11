@@ -1,10 +1,11 @@
-<KeyValueMapOperations name='KVM-Get-Authz-State'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-Get-Authz-State">
   <!-- <Scope>apiproxy</Scope> -->
   <ExpiryTimeInSecs>10</ExpiryTimeInSecs>
   <MapName>settings</MapName>
-  <Get assignTo='private.oidc_information_b64'>
+  <Get assignTo="private.oidc_information_b64">
     <Key>
-      <Parameter ref='request.queryparam.state'/>
+      <Parameter ref="request.queryparam.state"/>
     </Key>
   </Get>
 </KeyValueMapOperations>

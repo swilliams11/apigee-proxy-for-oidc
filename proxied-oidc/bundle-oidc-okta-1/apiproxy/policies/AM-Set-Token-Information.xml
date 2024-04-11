@@ -1,22 +1,19 @@
-<AssignMessage name='AM-Set-Token-Information'>
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-Set-Token-Information">
   <!-- the following are used by the subsequent OAuth policy -->
   <AssignVariable>
     <Name>request.formparam.grant_type</Name>
     <Template>client_credentials</Template>
   </AssignVariable>
-
   <!-- necessary? -->
   <AssignVariable>
     <Name>request.header.content-type</Name>
     <Value>application/x-www-form-urlencoded</Value>
   </AssignVariable>
-
   <AssignVariable>
     <Name>desired_apigee_token_lifetime</Name>
     <!-- expressed in milliseconds -->
-    <Template>{jwt.DecodeJWT-1.seconds_remaining}000</Template>
+    <!--Template>{jwt.DecodeJWT-1.seconds_remaining}000</Template-->
+    <Template>{idp_response.expires_in}000</Template>
   </AssignVariable>
-
-
 </AssignMessage>

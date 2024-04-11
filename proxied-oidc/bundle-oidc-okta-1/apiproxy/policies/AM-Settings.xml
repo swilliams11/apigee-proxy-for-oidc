@@ -1,20 +1,17 @@
-<AssignMessage name='AM-Settings'>
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage name="AM-Settings">
   <AssignVariable>
     <Name>authorize_endpoint</Name>
-    <Template ref='propertyset.idp.tmpl_authorize_endpoint'/>
+    <Template ref="propertyset.idp.tmpl_authorize_endpoint"/>
   </AssignVariable>
-
   <AssignVariable>
     <Name>jwks_endpoint</Name>
-    <Template ref='propertyset.idp.tmpl_jwks_endpoint'/>
+    <Template ref="propertyset.idp.tmpl_jwks_endpoint"/>
   </AssignVariable>
-
   <AssignVariable>
     <Name>idp.endpoint.token</Name>
-    <Template ref='propertyset.idp.tmpl_token_endpoint'/>
+    <Template ref="propertyset.idp.tmpl_token_endpoint"/>
   </AssignVariable>
-
   <!--
     NB:
     the URL resulting from the following must be registered as a valid
@@ -22,24 +19,20 @@
   -->
   <AssignVariable>
     <Name>app.redirectUri</Name>
-    <Template ref='propertyset.idp.tmpl_redirect_uri'/>
+    <Template ref="propertyset.idp.tmpl_redirect_uri"/>
   </AssignVariable>
-
   <AssignVariable>
     <Name>oidc.loginPath</Name>
-    <Template ref='propertyset.idp.tmpl_login_path'/>
+    <Template ref="propertyset.idp.tmpl_login_path"/>
   </AssignVariable>
-
   <AssignVariable>
     <Name>idp.clientId</Name>
     <Ref>propertyset.idp.okta_clientId</Ref>
   </AssignVariable>
-
   <AssignVariable>
     <Name>idp.clientSecret</Name>
     <Ref>propertyset.idp.okta_clientSecret</Ref>
   </AssignVariable>
-
   <AssignVariable>
     <Name>rsa_private_key_id</Name>
     <Value>eb376588-7a0d</Value>
@@ -78,6 +71,4 @@ lEFUSJnnhDUTq4FJHoOgQ5g=
 -----END PRIVATE KEY-----
     </Value>
   </AssignVariable>
-
-
 </AssignMessage>

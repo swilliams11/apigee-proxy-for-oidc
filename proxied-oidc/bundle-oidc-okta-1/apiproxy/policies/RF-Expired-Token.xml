@@ -1,11 +1,12 @@
-<RaiseFault name='RF-Expired-Token'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault name="RF-Expired-Token">
   <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
   <FaultResponse>
     <Set>
       <Headers>
-        <Header name='login-path'>{oidc.loginPath}</Header>
+        <Header name="login-path">{oidc.loginPath}</Header>
       </Headers>
-      <Payload contentType='application/json'>{
+      <Payload contentType="application/json">{
   "error" : {
     "code" : 401.02,
     "message" : "the token is expired."

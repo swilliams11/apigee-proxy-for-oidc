@@ -1,8 +1,9 @@
-<RaiseFault name='RF-Invalid-Request'>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault name="RF-Invalid-Request">
   <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
   <FaultResponse>
     <Set>
-      <Payload contentType='application/json'>{
+      <Payload contentType="application/json">{
   "error" : {
     "code" : 400.04,
     "message" : "that request was invalid, missing a query parameter."
